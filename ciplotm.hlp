@@ -1,5 +1,5 @@
 {smcl}
-{* 18august2003/15august2011}{...}
+{* 18august2003/18june2015}{...}
 {hline}
 help for {hi:ciplot}
 {hline}
@@ -14,6 +14,7 @@ help for {hi:ciplot}
 [{it:weight}]  
 [{cmd:,}
 {cmd:by(}{it:byvar}{cmd:)} 
+{cmd:sepby}
 {cmdab:miss:ing}
 {it:ci_options}
 [{cmdab:hor:izontal} {c |} {cmdab:vert:ical}] 
@@ -41,6 +42,8 @@ Means are shown by point symbols and intervals by capped bars.
 
 {p 4 8 2}{cmd:by()} defines a grouping variable, which is treated as 
 categorical, not measured.
+
+{p 4 8 2}{cmd:sepby} separates alignment of points across values of {cmd:by()}
 
 {p 4 8 2}{cmd:missing}, applicable only with {cmd:by()}, specifies that results
 for groups with missing values of {it:byvar} should be included in the display.
@@ -83,7 +86,8 @@ vertical.
 
 {p 4 4 2}Nicholas J. Cox, Durham University{break} 
          n.j.cox@durham.ac.uk
-
+{p 4 4 2}Modifications by Thomas J. Leeper, Aarhus University{break} 
+         thosjleeper@gmail.com
 
 {title:Acknowledgments} 
 
