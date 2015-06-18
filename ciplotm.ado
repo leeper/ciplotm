@@ -1,3 +1,4 @@
+* TJL 1.1.2 18 June 2015
 *! NJC 1.1.1 15 August 2011 
 *! NJC 1.1.0 18 August 2003 
 * NJC 1.0.4 15 May 2003
@@ -9,7 +10,7 @@
 program ciplot, sortpreserve rclass 
 	version 8.1 
 	syntax varlist(numeric) [if] [in] [aweight fweight]        ///
-	[ , BY(varname) LEVel(integer $S_level) Poisson BINomial   ///
+	[ , BY(varname) SEPby LEVel(integer $S_level) Poisson BINomial   ///
 	Exposure(varname) EXAct Jeffreys Wilson Agresti Total      ///
 	Total2(str asis) MISSing INCLusive                         ///
 	YTItle(str asis) XTItle(str asis)                          ///
@@ -27,7 +28,11 @@ program ciplot, sortpreserve rclass
 	if "`missing'" != "" & "`by'" == "" {
 		di as txt "missing option ignored without by() option"
 	}
-
+	
+	if "`sepby'" != "" & "`by'" == "" {
+		di as txt "sepby option ignored without by() option"
+	}
+	
 	if "`inclusive'" != "" marksample touse, novarlist 
 	else marksample touse 
 	if "`by'" != "" & "`missing'" == "" markout `touse' `by', strok 
@@ -110,7 +115,7 @@ program ciplot, sortpreserve rclass
 					local W "`W' `w'"
 				} 
 				local i = `i' + 1 
-				local w = `w' + 2 
+				if "`sepby'" != "" local w = `w' + 2 
 			}	
 
 			if "`by'" != "" {
@@ -142,7 +147,7 @@ program ciplot, sortpreserve rclass
 				replace `l`level'' = r(lb) in `i'              
 				replace `u`level'' = r(ub) in `i'
 				local i = `i' + 1 
-				local w = `w' + 2 
+				if "`sepby'" != "" local w = `w' + 2 
 			}
 			
 			su `which' in `i1' / `i2', meanonly 
