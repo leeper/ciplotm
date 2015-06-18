@@ -1,5 +1,5 @@
 # ciplotm
-This is a fork of Nick Cox's 'ciplot' ado for Stata. It adds an optional `sepby` argument the controls the display behavior when using multiple variables in `varlist` combined with the `by()` option. If `sepby`, then `ciplotm` behaves the same as the original `ciplot`. If not using `sepby` (the new default), then bars for each variable are aligned (vertically or horizontally, depending on the other options).
+This is a fork of Nick Cox's [`ciplot` ado for Stata](https://ideas.repec.org/c/boc/bocode/s431202.html). It adds an optional `sepby` argument the controls the display behavior when using multiple variables in `varlist` combined with the `by()` option. If `sepby`, then `ciplotm` behaves the same as the original `ciplot`. If not using `sepby` (the new default), then bars for each variable are aligned (vertically or horizontally, depending on the other options).
 
 This is athe default behavior of `ciplot` (or the optional behavior or `ciplotm` with the `, sepby` argument):
 
