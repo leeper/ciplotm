@@ -230,7 +230,7 @@ program ciplotm, sortpreserve rclass
 	        scatter `S' `mean', `legend' xtitle(`xtitle')       ///
 		ytitle(`ytitle') yla(`W', val noticks ang(h))       ///
 		yscale(r(1,`nmax') reverse) ms(dh oh)               ///
-		note("`level'% confidence intervals") `options' ||  ///
+		`options' ||  ///
 		`plot' || `addplot' 
 	}
 	else { 
@@ -239,7 +239,7 @@ program ciplotm, sortpreserve rclass
 	        scatter `S' `which', `legend' ytitle(`ytitle')       ///
 		xtitle(`xtitle') xla(`W', val noticks)               ///
 		xscale(r(1,`nmax')) ms(dh oh)                        ///
-		note("`level'% confidence intervals") `options' ||   ///
+		`options' ||   ///
 		`plot' || `addplot' 
 	}	
 
